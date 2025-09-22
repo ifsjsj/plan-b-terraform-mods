@@ -33,16 +33,16 @@ namespace CheatProgressSpeed
 
             modEnabled = Config.Bind("General", "Enabled", true, "Is the mod enabled?");
 
-            extractorSpeed = Config.Bind("General", "ExtractorSpeed", 1, "The speed multiplier of Extractors.");
-            extractorDeepSpeed = Config.Bind("General", "DeepExtractorSpeed", 1, "The speed multiplier of Deep Extractors.");
-            factorySpeed = Config.Bind("General", "FactorySpeed", 1, "The speed multiplier of Factories (includes Assemblers, Greenhouses, Ice Extractors).");
+            extractorSpeed = Config.Bind("General", "ExtractorSpeed", 2, "The speed multiplier of Extractors.");
+            extractorDeepSpeed = Config.Bind("General", "DeepExtractorSpeed", 2, "The speed multiplier of Deep Extractors.");
+            factorySpeed = Config.Bind("General", "FactorySpeed", 10, "The speed multiplier of Factories (includes Assemblers, Greenhouses, Ice Extractors).");
             citySpeed = Config.Bind("General", "CitySpeed", 1, "The speed multiplier of Cities.");
-            droneSpeed = Config.Bind("General", "DroneSpeedAdd", 0f, "Adds to the global drone speed.");
+            droneSpeed = Config.Bind("General", "DroneSpeedAdd", 6f, "Adds to the global drone speed.");
             droneTakeoffDuration = Config.Bind("General", "DroneTakeoffDurationAdd", 0f, "Adds to the global drone takeoff duration. Use negative to speed it up.");
 
-            vehicleSpeedLow = Config.Bind("General", "VehicleSpeedLowAdd", 0f, "Adds to the vehicle's low speed.");
-            vehicleSpeedMedium = Config.Bind("General", "VehicleSpeedMediumAdd", 0f, "Adds to the vehicle's medium speed.");
-            vehicleSpeedMax = Config.Bind("General", "VehicleSpeedMaxAdd", 0f, "Adds to the vehicle's medium speed.");
+            vehicleSpeedLow = Config.Bind("General", "VehicleSpeedLowAdd", 6f, "Adds to the vehicle's low speed.");
+            vehicleSpeedMedium = Config.Bind("General", "VehicleSpeedMediumAdd", 6f, "Adds to the vehicle's medium speed.");
+            vehicleSpeedMax = Config.Bind("General", "VehicleSpeedMaxAdd", 6f, "Adds to the vehicle's medium speed.");
 
             IsExtracting = AccessTools.Method(typeof(CItem_ContentExtractor), "IsExtracting", new Type[] { typeof(int2) });
 
@@ -145,6 +145,7 @@ namespace CheatProgressSpeed
                 + (double)(GDrones.durationTakeOff + droneTakeoffDuration.Value) 
                 + (double)(magnitude / (GDrones.speed + droneSpeed.Value)) 
                 + (double)num;
+
 
         }
 
